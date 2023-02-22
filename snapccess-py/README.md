@@ -2,7 +2,13 @@
 
 A python package to generate ensemble deep learning of embeddings for clustering multimodal single-cell omics data
 
+
 ## Installation
+
+### Stable version
+```
+pip install snapccess  --index-url https://pypi.org/simple
+``` 
 
 
 

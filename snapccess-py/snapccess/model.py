@@ -37,9 +37,16 @@ class Encoder(nn.Module):
 
     def forward(self, x):
         X = []
+        startfeature=0
         for i, eachmodal in enumerate(self.encoder_eachmodal):
-            tmp=eachmodal(x[:,:self.features[i]]*self.weights[i])
-            X.append(tmp)
+            if i == 0:
+                tmp=eachmodal(x[:,startfeature:self.features[i]]*self.weights[i])
+                startfeature=startfeature+self.features[i]
+                X.append(tmp)
+            else:
+                tmp=eachmodal(x[:,startfeature:(startfeature+self.features[i])]*self.weights[i])
+                startfeature=startfeature+self.features[i]
+                X.append(tmp)
         #X = [self.encoder_eachmodal[i](x[:,:self.features[i]]*self.weights[i]) for i in range(len(self.features))]
         x = torch.cat(X, 1)
         x = self.encoder(x)

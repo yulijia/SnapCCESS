@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "SnapCCESS"
-version = "0.1.7"
-description = ""
+version = "0.1.9"
+description = "Ensemble deep learning of embeddings for clustering multimodal single-cell omics data"
 authors = ["Lijia Yu <yulj2010@gmail.com>"]
 readme = "README.md"
 

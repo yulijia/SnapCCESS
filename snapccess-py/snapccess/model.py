@@ -18,7 +18,7 @@ class Encoder(nn.Module):
     """Encoder for multi-modal data"""
     def __init__(self, num_features: list, num_hidden_features: list, z_dim: int=128):
         super().__init__()
-        self.features=num_features #[num_features[i] for i in range(len(num_features))]  
+        self.features=num_features
         self.encoder_eachmodal= nn.ModuleList([LinBnDrop(num_features[i], num_hidden_features[i], p=0.2, act=nn.ReLU())
                                  for i in range(len(num_hidden_features))]).to(device) 
         self.encoder = LinBnDrop(sum(num_hidden_features), z_dim, act=nn.ReLU()).to(device)
@@ -39,15 +39,9 @@ class Encoder(nn.Module):
         X = []
         startfeature=0
         for i, eachmodal in enumerate(self.encoder_eachmodal):
-            if i == 0:
-                tmp=eachmodal(x[:,startfeature:self.features[i]]*self.weights[i])
-                startfeature=startfeature+self.features[i]
-                X.append(tmp)
-            else:
-                tmp=eachmodal(x[:,startfeature:(startfeature+self.features[i])]*self.weights[i])
-                startfeature=startfeature+self.features[i]
-                X.append(tmp)
-        #X = [self.encoder_eachmodal[i](x[:,:self.features[i]]*self.weights[i]) for i in range(len(self.features))]
+            tmp=eachmodal(x[:,startfeature:(startfeature+self.features[i])]*self.weights[i])
+            startfeature=startfeature+self.features[i]
+            X.append(tmp)
         x = torch.cat(X, 1)
         x = self.encoder(x)
         mu = self.fc_mu(x)
@@ -61,11 +55,10 @@ class Decoder(nn.Module):
     """Decoder for 2 modal data"""
     def __init__(self, num_features: list, z_dim: int = 128):
         super().__init__()
-        self.features=num_features #[num_features[i] for i in range(len(num_features))]  
+        self.features=num_features
         self.decoder_eachmodal= nn.ModuleList([ LinBnDrop(z_dim, num_features[i], act=nn.ReLU()) for i in range(len(num_features))]).to(device) 
 
     def forward(self, x):
-        #X = [self.decoder_eachmodal[i](x) for i in range(len(self.decoder_eachmodal))]
         X = []
         for i, deachmodal in enumerate(self.decoder_eachmodal):
             tmp=deachmodal(x)
@@ -79,7 +72,7 @@ class snapshotVAE(nn.Module):
         self.encoder = Encoder(num_features, num_hidden_features, z_dim)
         self.decoder = Decoder(num_features, z_dim)
     def forward(self, x):
-        x,mu,var = self.encoder(x) #
+        x,mu,var = self.encoder(x)
         x = self.decoder(x)
         return x,mu,var
     

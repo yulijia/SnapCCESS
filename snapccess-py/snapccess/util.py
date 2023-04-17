@@ -16,30 +16,14 @@ def snapshot_lr(initial_lr, epoch, epoch_per_cycle):
     return initial_lr * (cos(pi * ((epoch-1)%epoch_per_cycle) / epoch_per_cycle) + 1) / 2
 
 def setup_seed(seed):
-     torch.manual_seed(seed)
-     torch.cuda.manual_seed_all(seed)
-     np.random.seed(seed)
-     random.seed(seed)
-     torch.backends.cudnn.deterministic = True
-     torch.backends.cudnn.benchmark = False
-     os.environ['PYTHONHASHSEED']=str(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    os.environ['PYTHONHASHSEED']=str(seed)
 
- 
-
-from torch.utils.data import Dataset
-
-class TabularDataset(Dataset):
-    """Custome dataset for tabular data"""
-    def __init__(self, data):
-        self.data = data
-
-    def __len__(self):
-        return len(self.data)
-
-    def __getitem__(self, idx):
-        x = self.data[idx]
-        return x
- 
 
 def get_encodings(model, dl):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

@@ -1,3 +1,6 @@
+This is the development repo, for the stable repo, please check [https://github.com/PYangLab/SnapCCESS](https://github.com/PYangLab/SnapCCESS)
+
+
 # SnapCCESS
 SnapCCESS: Ensemble deep learning of embeddings for clustering multimodal single-cell omics data.
 
@@ -11,8 +14,6 @@ various clustering algorithms for generating consensus clustering of cells.
 ![img](https://i.imgur.com/krfBTGP.png)
 
 
-
-This is the development repo, for the stable repo, please check [https://github.com/PYangLab/SnapCCESS](https://github.com/PYangLab/SnapCCESS)
 
 ## Installation
 

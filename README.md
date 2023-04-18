@@ -22,12 +22,16 @@ This is the development repo, for the stable repo, please check [https://github.
 pip install snapccess  --index-url https://pypi.org/simple
 ```
 
+For detailed description of each function, please see [https://github.com/yulijia/SnapCCESS/tree/main/snapccess-py](https://github.com/yulijia/SnapCCESS/tree/main/snapccess-py)
+
 
 ### R
 
 ```
 remotes::install_github(repo='PYangLab/SnapCCESS',branch='main',subdir='snapccess-r/SnapCCESS')
 ```
+
+For detailed description of each function, please see [https://github.com/yulijia/SnapCCESS/tree/main/snapccess-r](https://github.com/yulijia/SnapCCESS/tree/main/snapccess-r)
 
 
 ## [Tutorial](https://github.com/PYangLab/SnapCCESS/tree/main/tutorials)

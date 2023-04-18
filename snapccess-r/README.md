@@ -47,7 +47,7 @@ Installation method. By default, "auto" automatically finds a method that will w
 - `conda`:	
 The path to a conda executable. By default, reticulate will check the PATH, as well as other standard locations for Anaconda installations.
 
--`...`:	
+- `...`:	
 Additional arguments passed to reticulate::py_install function
  
 

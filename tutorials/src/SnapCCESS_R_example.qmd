@@ -1,30 +1,18 @@
 ---
 title: "A example of run SnapCCESS with R"
-author: "Lijia Yu"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+format: html
+author: Lijia
 ---
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
 ## SnapCCESS
 
-SnapCCESS enables you to perform the clustering on multimodality datasets. To learn more about SnapCCESS see [https://github.com/PYangLab/SnapCCESS](https://github.com/PYangLab/SnapCCESS){.uri}.
+SnapCCESS enables you to perform the clustering on multimodality datasets. To learn more about Quarto see [https://github.com/PYangLab/SnapCCESS](https://github.com/PYangLab/SnapCCESS){.uri}.
 
 ## Install SnapCCESS in R
 
 To install SnapCCESS, you need to use `remote::install_github`.
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 remotes::install_github(repo='PYangLab/SnapCCESS',branch='main',subdir='snapccess-r/SnapCCESS')
 ```
@@ -33,7 +21,7 @@ After install SnapCCESS package, we need to install the python dependencies that
 
 If we don't set up the conda path, by default it will be installed in the R r-miniconda folder.
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 library(SnapCCESS)
 install_SnapCCESS(envname = "SnapCCESS",method = "conda",conda="/home/lijiay/miniconda3/condabin/conda")
@@ -46,7 +34,7 @@ If you intalled the package successfully, we next need to use the installed envi
 
 If you are unable to load the modules, please ensure that the SnapCCESS environment is installed on your computer. After confirming its installation, please restart a new Rsession and attempt to load the package once again
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 reticulate::use_condaenv(condaenv = "SnapCCESS",
                          required=T,
@@ -57,7 +45,7 @@ SnapCCESS::loadmodule()
 ## Read the example data and do preprocessing.
 
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 rna=read.csv("../in/CITEseq_logRNA.csv.gz",row.names = 1,check.names = F)
 adt=read.csv("../in/CITEseq_logADT.csv.gz",row.names = 1,check.names = F)
@@ -68,7 +56,7 @@ train=preprocess(x=list(rna,adt),mb_size=64)
 
 ## Build model
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 model=build_model(num_features=list(nrow(rna),nrow(adt)),
                   num_hidden_features=list(185,30),
@@ -81,7 +69,7 @@ model=build_model(num_features=list(nrow(rna),nrow(adt)),
 Here, we propose an example with a total of 10 epochs, divided into 5 cycles, with 2 epochs per cycle.
 
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 output=run_SnapCCESS(model,train,
                      epochs=10,epochs_per_cycle=2,
@@ -92,7 +80,7 @@ output=run_SnapCCESS(model,train,
 
 ## Clustering
 
-```{r,eval=FALSE}
+```{r}
 #| eval: false
 clusts=list()
 n=1

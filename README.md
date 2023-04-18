@@ -8,7 +8,7 @@ of embeddings of multimodality using variational autoencoders, SnapCCESS can be 
 various clustering algorithms for generating consensus clustering of cells.
 
 
-![img](https://i.imgur.com/krfBTGPl.png)
+![img](https://i.imgur.com/krfBTGP.png)
 
 
 

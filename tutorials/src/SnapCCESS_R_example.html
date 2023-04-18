@@ -363,7 +363,7 @@ package, and my conda location is
 <p>If we don’t set up the conda path, by default it will be installed in
 the R r-miniconda folder.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SnapCCESS)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_SnapCCESS</span>(<span class="at">envname =</span> <span class="st">&quot;SnapCCESS&quot;</span>,<span class="at">method =</span> <span class="st">&quot;conda&quot;</span>,<span class="at">conda=</span><span class="st">&quot;/dskh/nobackup/lijiay/miniconda3/condabin/conda&quot;</span>)</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_SnapCCESS</span>(<span class="at">envname =</span> <span class="st">&quot;SnapCCESS&quot;</span>,<span class="at">method =</span> <span class="st">&quot;conda&quot;</span>,<span class="at">conda=</span><span class="st">&quot;/home/lijiay/miniconda3/condabin/conda&quot;</span>)</span></code></pre></div>
 </div>
 <div id="loading-all-python-packages" class="section level2">
 <h2>Loading all python packages</h2>
@@ -375,7 +375,7 @@ its installation, please restart a new Rsession and attempt to load the
 package once again</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">use_condaenv</span>(<span class="at">condaenv =</span> <span class="st">&quot;SnapCCESS&quot;</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">required=</span>T,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">conda=</span><span class="st">&quot;/dskh/nobackup/lijiay/miniconda3/condabin/conda&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">conda=</span><span class="st">&quot;/home/lijiay/miniconda3/condabin/conda&quot;</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>SnapCCESS<span class="sc">::</span><span class="fu">loadmodule</span>()</span></code></pre></div>
 </div>
 <div id="read-the-example-data-and-do-preprocessing." class="section level2">

@@ -38,7 +38,7 @@ We only need to run this step once when you first install the SnapCCESS package.
 ```{r,eval=FALSE}
 #| eval: false
 library(SnapCCESS)
-install_SnapCCESS(envname = "SnapCCESS",method = "conda",conda="/home/lijiay/miniconda3/condabin/conda")
+install_SnapCCESS(envname = "SnapCCESS",method = "conda",conda="/home/lijiay/miniconda3/bin/conda")
 ```
 
 
@@ -52,7 +52,7 @@ If you are unable to load the modules, please ensure that the SnapCCESS environm
 #| eval: false
 reticulate::use_condaenv(condaenv = "SnapCCESS",
                          required=T,
-                         conda="/home/lijiay/miniconda3/condabin/conda")
+                         conda="/dskh/nobackup/lijiay/miniconda3/bin/conda")
 SnapCCESS::loadmodule()
 ```
 

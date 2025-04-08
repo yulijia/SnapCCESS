@@ -159,7 +159,7 @@ preprocessed dataset
 - `lr`:	
 initial learning rate
 
-- `cycle`:	
+- `epochs`:	
 number of epochs cycle, if snapshot is false, this become to the total epochs that will be training in traditional VAE model
 
 - `epochs_per_cycle`:
